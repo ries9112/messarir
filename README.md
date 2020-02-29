@@ -25,3 +25,9 @@ get_response_content(httr::GET("https://data.messari.io/api/v1/assets/btc/metric
 
 4. Functions for news: https://data.messari.io/api/v1/news
     Also option by asset: https://data.messari.io/api/v1/news/btc
+    
+
+5. Write all documentation + usage and examples
+
+
+6. Write automated tests using testthat to check each field has at least 1 valid result and create code coverage
