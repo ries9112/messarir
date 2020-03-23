@@ -1,0 +1,22 @@
+on: [push, pull_request]
+
+name: hourly_api_pull
+
+jobs:
+  hourly_api_pull:
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@master
+      - name: Install dependencies
+        run: |
+          install.packages(c("remotes", "rcmdcheck", "httr", "jsonlite", "dplyr", "DBI", "RMariaDB"))
+          remotes::install_deps(dependencies = TRUE)
+          db_user <- "${{secrets.USER}}"
+          db_pswd <- "${{secrets.PSWD}}"
+          db_ip <- "${{secrets.IP}}"
+          source("messari_hourly_api_pull.R")
+        shell: Rscript {0}
+      - name: Check
+        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
+        shell: Rscript {0}
