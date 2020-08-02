@@ -1,17 +1,13 @@
 # messarir
 R wrapper to the [Messari API for cryptocurrency data](https://messari.io/api/)
 
+In order to use this package, you will need a [**Messari Pro Subscription.** Click on the link to make a subscription.](https://messari.io/pricing)
+
+Once you have a Pro subscription, you will be able to create an API key:
+
+Once you have an API key, you can use it to 
 
 ## To-do:
-
-get_response_content <- function(api_response) {
-  httr::content(api_response,
-                type = "text",
-                encoding = "UTF-8") %>%
-    jsonlite::fromJSON(simplifyDataFrame = FALSE)
-}
-
-get_response_content(httr::GET("https://data.messari.io/api/v1/assets/btc/metrics"))
 
 1. Make function that adjusts `btc` to be chosen by the user
 
