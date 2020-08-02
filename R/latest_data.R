@@ -6,9 +6,23 @@
 #'@importFrom magrittr %>%
 #'@importFrom messarir get_response_content
 #'@export
-pull_latest_data_messari <- function(messari_api_key){#, symbol='all'){ # all returns all, or can specify a specific one
+latest_data <- function(messari_api_key, symbol='all'){ # all returns all, or can specify a specific one. Remember to point out usage of c('BTC','ETH',etc..) as possible and recommended
   full_data <- data.frame()
-  for (i in 1:nrow(messarir::symbols)){ # ifelse(symbol=='all', messarir::symbols, subset(messarir::symbols, Symbol==symbol))
+  symbols <- messarir::symbols
+  for(i in symbol){
+    if(i == 'all'){
+      not_all = 0
+    }
+    else{
+      not_all = 1
+    }
+  }
+  # check if to return all symbols or just specific ones
+  if(not_all == 1){
+    symbols <- subset(symbols, Symbol %in% symbol)
+  }
+  # pull data
+  for (i in 1:nrow(symbols)){
     tryCatch({
       all_assets <- httr::GET(paste0("https://data.messari.io/api/v1/assets/",symbols[i,'Symbol'],"/metrics"), add_headers('x-messari-api-key' = messari_api_key))
       all_assets <- get_response_content(all_assets)

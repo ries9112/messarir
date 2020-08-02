@@ -3,7 +3,9 @@ R wrapper to the [Messari API for cryptocurrency data](https://messari.io/api/)
 
 In order to use this package, you will need a [**Messari Pro Subscription.** Click on the link to make a subscription.](https://messari.io/pricing)
 
-Once you have a Pro subscription, you will be able to create an API key:
+Once you have a Pro subscription, you will be able to create an API key [at the following link: https://messari.io/account/api](https://messari.io/account/api):
+
+![](/images/api_key_page.png)
 
 Once you have an API key, you can use it to 
 
