@@ -1,14 +1,19 @@
 #'@importFrom httr GET
 #'@importFrom httr add_headers
-#'@importFrom httr get_response_content
 #'@importFrom dplyr filter
 #'@importFrom dplyr distinct
 #'@importFrom magrittr %>%
-#'@importFrom messarir get_response_content
 #'@export
 latest_data <- function(messari_api_key, symbol='all'){ # all returns all, or can specify a specific one. Remember to point out usage of c('BTC','ETH',etc..) as possible and recommended
   full_data <- data.frame()
   symbols <- messarir::symbols
+  # get_response_content()
+  get_response_content <- function(api_response) {
+    httr::content(api_response,
+                  type = "text",
+                  encoding = "UTF-8") %>%
+      jsonlite::fromJSON(simplifyDataFrame = FALSE)
+  }
   for(i in symbol){
     if(i == 'all'){
       not_all = 0
