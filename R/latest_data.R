@@ -2,6 +2,7 @@
 #'@importFrom httr add_headers
 #'@importFrom dplyr filter
 #'@importFrom dplyr distinct
+#'@importFrom dplyr as_tibble
 #'@importFrom magrittr %>%
 #'@export
 latest_data <- function(messari_api_key, symbol='all'){ # all returns all, or can specify a specific one. Remember to point out usage of c('BTC','ETH',etc..) as possible and recommended
@@ -448,6 +449,6 @@ latest_data <- function(messari_api_key, symbol='all'){ # all returns all, or ca
 
   # remove duplicate symbols
   full_data <- full_data %>% distinct(symbol, .keep_all = TRUE)
-  # Return data
-  return(full_data)
+  # Return data (as tibble)
+  return(dplyr::as_tibble(full_data))
 }
