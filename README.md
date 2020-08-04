@@ -1,6 +1,8 @@
 # messarir
 R wrapper to the [Messari API for cryptocurrency data](https://messari.io/api/)
 
+This is a non-official utility made by a user with no association to [Messari](https://messari.io).
+
 In order to use this package, you will need a [**Messari Pro Subscription.** Click on the link to make a subscription.](https://messari.io/pricing)
 
 Once you have a Pro subscription, you will be able to create an API key [at the following link: https://messari.io/account/api](https://messari.io/account/api):
