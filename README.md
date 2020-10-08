@@ -32,4 +32,7 @@ Once you have an API key, you can use it to
 6. Write all documentation + usage and examples
 
 
+7. **Add instructions on storing the data using googlesheets**
+
+
 7. Write automated tests using testthat to check each field has at least 1 valid result and create code coverage
